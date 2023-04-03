@@ -1,0 +1,19 @@
+header {
+  display: flex;
+  height: 400px;
+  width: 100%;
+  justify-content: bottom;
+  align-items: center;
+  flex-direction: column;
+  background-color:darkcyan;
+  background-image: url(http://www.transparenttextures.com/patterns/black-mamba.png);
+  padding-top: 40px;
+}
+
+header img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  align-items: center;
+  margin-top:0%;
+}
