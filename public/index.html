@@ -49,6 +49,22 @@
   </header>
 
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+      <section class="compose-tweet">
+        <!-- tweets -->
+        <h2>Compose Tweet</h2>
+        <form action="/tweets" method="POST">
+          <!-- tweet-text -->
+          <label for="text-box">What are you humming about?</label>
+          <br>
+          <textarea name="text" id="text-box"></textarea>
+          <div class="tweet-submit">
+            <input type="submit" value="Tweet">
+            <span class="counter">140</span>
+          </div>
+          <br>
+        </form>
+      </section>
+    </main>
   </body>
 </html>
