@@ -61,3 +61,8 @@ textarea#text-box {
 .tweet-submit {
 
 }
+
+.counter.tweetMaxChars {
+  color: red;
+  font-weight: bold;
+}
