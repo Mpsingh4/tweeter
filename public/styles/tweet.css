@@ -1,0 +1,63 @@
+
+section.compose-tweet {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  font-family: 'Bungee', sans-serif;
+}
+
+section.compose-tweet h2 {
+  margin-top: 0;
+  width: 100%;
+}
+
+label[for="text-box"] {
+  font-size: 14px;
+  
+}
+
+#text-box {
+  font-size: 15px;
+  padding: 0px;
+  margin-top: 0px;
+}
+
+textarea#text-box {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  font-size: 12px;
+  margin-bottom: 10px;
+  font-family: 'Bungee', sans-serif;
+}
+
+.tweet-submit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Bungee', sans-serif;
+}
+
+.tweet-submit input[type="submit"] {
+  background-color: #0084b4;
+  color: #fff;
+  border: none;
+  padding: 10px 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.counter {
+  font-size: 15px;
+  color: #999;
+}
+
+.tweet-box {
+
+}
+
+.tweet-submit {
+
+}

@@ -38,14 +38,6 @@ main {
   margin-right: 5%;
 }
 
-.tweet-box {
-
-}
-
-.tweet-submit {
-
-}
-
-section.compose-tweet {
-  width: 100%;
+.username {
+  color:aliceblue; 
 }
