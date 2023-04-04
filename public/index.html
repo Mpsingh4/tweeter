@@ -37,8 +37,8 @@
         <div class="arrow-down"> <i style="color: crimson;" class="fa-solid fa-angles-down"></i></div>
       </div>
     </nav>
-
-    <header>
+<!-- header here -->
+    <header class="profile-header">
       <div>
           <img src="/images/profile-hex.png"> 
       </div>
@@ -53,8 +53,8 @@
     <main class="container">
       <section class="compose-tweet">
         <!-- tweets -->
-        <h4>Compose Tweet</h4>
-        <form action="/tweets" method="POST">
+        <h4 id="compose-tweet">Compose Tweet</h4>
+        <form action="/tweets" method="POST" class="form-box">
           <!-- tweet-text -->
           <label for="text-box">What are you humming about?</label>
           <br>
@@ -67,6 +67,46 @@
         </form>
       </section>
       <script src="/scripts/composer-char-counter.js"></script>
+      <!-- tweets in main -->
+
+      <section class="all-tweets">
+        <article class="tweets-posted">
+          <header class="tweet-header">
+            <img src="https://i.imgur.com/73hZDYK.png">
+              <h4 id="newton">Newton</h4>
+              <div><p class="handle">@SirIsaac</p></div>
+          </header>
+          <p id="tweet-text">If i have seen further it is by standing on the shoulders of giants</p>
+          <footer class="tweet-footer">
+            <p id="date-tweeted">10 days ago</p>
+            <div class="tweet-footer-icons">
+              <div><i class="fa-solid fa-flag"></i></div>
+              <div><i class="fa fa-retweet"></i></div>
+              <div><i class="fa-solid fa-heart"></i></div>
+            </div>
+          </footer>
+        </article>
+      </section>
+
+      <section class="all-tweets">
+        <article class="tweets-posted">
+          <header class="tweet-header">
+            <img src="https://i.imgur.com/73hZDYK.png">
+              <h4 id="newton"> Jerry</h4>
+              <p id="handle">@GrandLineReview</p>
+          </header>
+          <p id="tweet-text">One Piece is the greatest Shonen manga!</p>
+          <footer class="tweet-footer">
+            <p id="date-tweeted">16 days ago</p>
+            <div class="tweet-footer-icons">
+              <div><i class="fa-solid fa-flag"></i></div>
+              <div><i class="fa fa-retweet"></i></div>
+              <div><i class="fa-solid fa-heart"></i></div>
+            </div>
+          </footer>
+        </article>
+      </section>
+
     </main>
   </body>
 </html>

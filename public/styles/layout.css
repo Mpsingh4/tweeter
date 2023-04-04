@@ -19,7 +19,7 @@ body {
   /* background-color: #f4f1ec; */
   font-size: 24px;
   font-family: 'Source Sans Pro', sans-serif;
-  background-image: url(http://www.transparenttextures.com/patterns/black-mamba.png);
+  /* background-image: url(http://www.transparenttextures.com/patterns/black-mamba.png); */
   background-color:darkcyan
 }
 
@@ -38,6 +38,16 @@ main {
   margin-right: 5%;
 }
 
+.profile-header {
+  margin-bottom: 0;
+  height: 220px;
+}
+
+section.compose-tweet {
+  margin-top: 0;
+}
+
 .username {
   color:aliceblue; 
+  margin-bottom: 0px;
 }
