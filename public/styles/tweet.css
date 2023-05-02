@@ -1,4 +1,4 @@
-
+/* Compose Tweet Section */
 section.compose-tweet {
   border: 1px solid #ccc;
   padding: 10px;
@@ -6,33 +6,18 @@ section.compose-tweet {
   font-family: 'Bungee', sans-serif;
 }
 
-section.compose-tweet h2 {
-  margin-top: 0;
-  width: 100%;
-  height:200px;
-}
-
-#compose-tweet {
+section.compose-tweet h4 {
+  margin: 0;
   font-size: 14px;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  padding:0%;
 }
 
-#form-box {
+form.form-box {
   display: inline;
   height: 200px;
 }
 
 label[for="text-box"] {
   font-size: 10px;
-  
-}
-
-#text-box {
-  font-size: 15px;
-  padding: 0px;
-  margin-top: 0px;
 }
 
 textarea#text-box {
@@ -52,7 +37,6 @@ textarea#text-box {
   zoom: 75%;
   margin-top: 0px;
   margin-bottom: 0px;
-
 }
 
 .tweet-submit input[type="submit"] {
@@ -70,20 +54,13 @@ textarea#text-box {
   color: #999;
 }
 
-.tweet-box {
-
-}
-.tweet-submit {
-
-}
-
 .counter.tweetMaxChars {
   color: red;
   font-weight: bold;
 }
 
-/* Tweet mains -------------- */
 
+/* Tweet Section */
 .all-tweets {
   display: flex;
   margin-left: 5%;
@@ -99,16 +76,6 @@ textarea#text-box {
   background-color: white;
 }
 
-#newton {
-  display: flex;
-  justify-content: flex-start;
-}
-
-#handle {
-  display: flex;
-  justify-content: flex-end;
-}
-
 .tweet-header {
   display: flex;
   flex-direction: row;
@@ -119,6 +86,25 @@ textarea#text-box {
   background-color: white;
   background: solid;
   height: 100px;
+}
+
+.tweet-header img {
+  height: 100%;
+}
+
+.tweet-header .profile {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.tweet-header .profile-name {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.tweet-header .profile-id {
+  font-weight: bold;
 }
 
 #date-tweeted {
@@ -133,29 +119,33 @@ textarea#text-box {
 }
 
 .tweet-footer-icons {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    letter-spacing: 5px;
-    padding-bottom: 10px;
-    padding-right: 10px;
-    zoom: 60%
-  }
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  letter-spacing: 5px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  zoom: 60%
+}
 
-  .fa-flag:hover {
-    color:greenyellow;
-  }
-  .fa-retweet:hover {
-    color:aqua;
-  }
-  .fa-heart:hover {
-    color: red;
-  }
+.tweet-footer-icons div {
+  margin-left: 10px;
+  cursor: pointer;
+}
 
-  #tweet-text {
-    display: flex;
-    font-size: 8pt;
-    font-weight: bold;
-    padding-bottom: 0px;
-    margin: 2%;
-  }
+.fa-flag:hover {
+  color:greenyellow;
+}
+.fa-retweet:hover {
+  color:aqua;
+}
+.fa-heart:hover {
+  color: red;
+}
+
+#tweet-text {
+  font-size: 14px;
+  font-weight: bold;
+  padding: 0;
+  margin: 10px;
+}
