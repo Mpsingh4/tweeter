@@ -1,12 +1,12 @@
 
-const express = require('express');
-const app = express();
+// const express = require('express');
+// const app = express();
 
-const initialTweets = require('./initial-tweets.json'); // Assuming this is the correct path to your JSON file
+// const initialTweets = require('./initial-tweets.json'); // Assuming this is the correct path
 
-app.get('/api/initial-tweets', (req, res) => {
-  res.json(initialTweets);
-});
+// app.get('/api/initial-tweets', (req, res) => {
+//   res.json(initialTweets);
+// });
 
 
 // submit tweet

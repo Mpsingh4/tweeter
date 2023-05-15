@@ -4,9 +4,10 @@ nav {
   align-items: center;
   font-family: 'Bungee', sans-serif;
   background-color: #4056A1;
+  background-image: url(http://www.transparenttextures.com/patterns/black-mamba.png);
   color: #FFFFFF;
   font-size: 30px;
-  height: 100px;
+  height: 50px;
   padding: 1.5em;
 }
 

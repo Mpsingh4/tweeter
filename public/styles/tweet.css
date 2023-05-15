@@ -1,14 +1,28 @@
 /* Compose Tweet Section */
 section.compose-tweet {
-  border: 1px solid #ccc;
-  padding: 10px;
+  /* border: 1px solid #ccc; */
+  /* padding: 10px; */
   background-color: #fff;
   font-family: 'Bungee', sans-serif;
+  border: none;
+  background-color: transparent;
+  padding: 0;
 }
 
 section.compose-tweet h4 {
   margin: 0;
   font-size: 14px;
+  color: white;
+}
+
+.compose-tweet {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  font-family: 'Bungee', sans-serif;
+  width: 500px; /* Adjust the width as needed */
+  margin: 0 auto;
 }
 
 form.form-box {
@@ -18,15 +32,24 @@ form.form-box {
 
 label[for="text-box"] {
   font-size: 10px;
+  color: white;
 }
 
+
+
 textarea#text-box {
+  margin-top: 10px;
   width: 100%;
-  height: 80px;
-  border: 1px solid #ccc;
-  padding: 5px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+  padding: 0;
+  margin: 0;
+  border-bottom: 1px solid #ccc;
+  resize: none;
   font-size: 12px;
-  font-family: 'Bungee', sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
 }
 
 .tweet-submit {
@@ -63,8 +86,10 @@ textarea#text-box {
 /* Tweet Section */
 .all-tweets {
   display: flex;
-  margin-left: 5%;
-  margin-right: 5%;
+  margin: 0 auto;
+  width: 500px;
+  justify-content: center; /* Horizontally center */
+  align-items: center; /* Vertically center */
 }
 
 .tweets-posted {
@@ -75,11 +100,12 @@ textarea#text-box {
   width: 100%;
   background-color: white;
 }
+/* ------------------------ */
 
 .tweet-header {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center; /* Align items vertically in the center */
   justify-content: space-between;
   padding: 4px;
   zoom: 40%;
@@ -90,12 +116,12 @@ textarea#text-box {
 
 .tweet-header img {
   height: 100%;
+  margin-right: 10px; /* Add some right margin to create spacing between image and text */
 }
 
 .tweet-header .profile {
   display: flex;
   align-items: center;
-  margin-right: 10px;
 }
 
 .tweet-header .profile-name {
@@ -105,7 +131,11 @@ textarea#text-box {
 
 .tweet-header .profile-id {
   font-weight: bold;
+  margin-left: auto; /* Push the handle to the right side */
 }
+
+
+/* =============================== */
 
 #date-tweeted {
   display: flex;

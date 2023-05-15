@@ -40,14 +40,17 @@ main {
 
 .profile-header {
   margin-bottom: 0;
+  margin-top: 0;
   height: 220px;
 }
 
 section.compose-tweet {
-  margin-top: 0;
+  margin-top: 20px;
+  border: round;
 }
 
 .username {
   color:aliceblue; 
   margin-bottom: 0px;
 }
+
