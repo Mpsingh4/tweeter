@@ -1,32 +1,13 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-// const data = [
-//   {
-//     "user": {
-//       "name": "Newton",
-//       "avatars": "https://i.imgur.com/73hZDYK.png",
-//       "handle": "@SirIsaac"
-//     },
-//     "content": {
-//       "text": "If I have seen further it is by standing on the shoulders of giants"
-//     },
-//     "created_at": new Date().getTime() - (16 * 24 * 60 * 60 * 1000) // 16 days ago
-//   },
-//   {
-//     "user": {
-//       "name": "Jerry",
-//       "avatars": "https://i.imgur.com/73hZDYK.png",
-//       "handle": "@GrandLineReview"
-//     },
-//     "content": {
-//       "text": "One Piece is the greatest Shonen manga!"
-//     },
-//     "created_at": new Date().getTime() - (10 * 24 * 60 * 60 * 1000) // 10 days ago
-//   }
-// ];
+
+const express = require('express');
+const app = express();
+
+const initialTweets = require('./initial-tweets.json'); // Assuming this is the correct path to your JSON file
+
+app.get('/api/initial-tweets', (req, res) => {
+  res.json(initialTweets);
+});
+
 
 // submit tweet
 const $submitButton = $('.tweet-button');
@@ -38,13 +19,15 @@ $submitButton.on('click', function(event) {
   const formData = $('form').serialize();
   console.log(formData);
 
-  // Send an AJAX request to the server
-  $.ajax({
+   // Send an AJAX request to the server
+   $.ajax({
     url: '/tweets',
     method: 'POST',
     data: formData,
   }).then(function(response) {
     console.log(response);
+    // Redirect to /tweets
+    window.location.href = '/tweets';
   });
 });
 
@@ -85,6 +68,25 @@ const renderTweets = function(tweets) {
 // Call the renderTweets function with a data object as an argument
 renderTweets(data);
 
+// Define a function to fetch and render the initial tweets
+const loadInitialTweets = function() {
+  $.ajax({
+    url: '/initial-tweets', // Adjusted url as i couldnt get into root directory
+    method: 'GET',
+    dataType: 'json',
+    success: function(response) {
+      renderTweets(response);
+    },
+    error: function(xhr, status, error) {
+      // Handle any errors
+      console.log('Error:', error);
+    }
+  });
+};
+
+$(document).ready(function() {
+  loadInitialTweets();
+});
 
 const loadTweets = function() {
     $.ajax({
