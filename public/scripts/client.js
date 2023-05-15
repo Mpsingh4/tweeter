@@ -12,7 +12,7 @@
 // submit tweet
 $(document).ready(function() {
 
-  $('#tweet-form').on('submit', function(event) {
+  $('.form-box').on('submit', function(event) {
     const $parentSection = $(event.target).closest('section');
     const $counter = $parentSection.find('.counter');
     const $textBox = $parentSection.find('#tweet-text')
@@ -25,23 +25,15 @@ $(document).ready(function() {
       alert('Please submit a tweet!');
       return;
     } else {
+      console.log('before ajax/post')
       $.ajax({
         url: "/tweets",
         method: "POST",
         data: $(this).serialize()
       })
       .done((data) => {
-        resetForm();
-        $.ajax({
-          url: "/tweets",
-          method: "GET"
-        })
-        .done((data) => {
-          $('.all-tweets').prepend($(createTweetElement(data.reverse()[0])));
-        })
-        .fail((err) => {
-          console.log('Error did not work');
-        });
+        console.log("in done");
+        loadTweets();
       });
     }
   });
@@ -52,6 +44,7 @@ $(document).ready(function() {
       method: "GET"
     })
     .done((data) => {
+      console.log(data)
       renderTweets(data.reverse());
     })
     .fail((err) => {
@@ -83,15 +76,16 @@ const createTweetElement = function(tweet) {
           <div><i class="fa-solid fa-flag"></i></div>
           <div><i class="fa fa-retweet"></i></div>
           <div><i class="fa-solid fa-heart"></i></div>
-        </div>
-      </footer>
-    </article>
-    <br>
-  `);
-  
-  // Return the tweet element
-  return $tweet;
-};
+          </div>
+          </footer>
+          </article>
+          <br>
+          `);
+          
+          // Return the tweet element
+          return $tweet;
+        };
+        
 
 // Define a function that renders tweets by creating a tweet element for each tweet and appending it to the tweet history
 const renderTweets = function(tweets) {
@@ -101,39 +95,9 @@ const renderTweets = function(tweets) {
   }
 };
 
-// Call the renderTweets function with a data object as an argument
-renderTweets(data);
 
-// Define a function to fetch and render the initial tweets
-const loadInitialTweets = function() {
-  $.ajax({
-    url: '/initial-tweets', // Adjusted url as i couldnt get into root directory
-    method: 'GET',
-    dataType: 'json',
-    success: function(response) {
-      renderTweets(response);
-    },
-    error: function(xhr, status, error) {
-      // Handle any errors
-      console.log('Error:', error);
-    }
-  });
-};
-
+// red arrow bobbing function
 $(document).ready(function() {
-  loadInitialTweets();
+  const $arrowDown = $('.arrow-down');
+  $arrowDown.addClass('bobbing');
 });
-
-$.ajax('/tweets', { method: 'POST', data: data })
-    .then(function () {
-      loadTweets();
-    });
-
-// const loadTweets = function() {
-//   $.ajax('/tweets', { method: 'GET' })
-//   .then(function (data) {
-//     renderTweets(data);
-//   });
-// };
-
-loadTweets();
