@@ -85,12 +85,13 @@ textarea#text-box {
 
 /* Tweet Section */
 .all-tweets {
-  display: flex;
   margin: 0 auto;
   width: 500px;
+  overflow-y: auto;
   justify-content: center; /* Horizontally center */
   align-items: center; /* Vertically center */
 }
+
 
 .tweets-posted {
   display: flex;

@@ -10,26 +10,62 @@
 
 
 // submit tweet
-const $submitButton = $('.tweet-button');
-$submitButton.on('click', function(event) {
-  // Prevent the default form submission behavior
-  event.preventDefault();
+$(document).ready(function() {
 
-  // Serialize data
-  const formData = $('form').serialize();
-  console.log(formData);
+  $('#tweet-form').on('submit', function(event) {
+    const $parentSection = $(event.target).closest('section');
+    const $counter = $parentSection.find('.counter');
+    const $textBox = $parentSection.find('#tweet-text')
+    event.preventDefault();
 
-   // Send an AJAX request to the server
-   $.ajax({
-    url: '/tweets',
-    method: 'POST',
-    data: formData,
-  }).then(function(response) {
-    console.log(response);
-    // Redirect to /tweets
-    window.location.href = '/tweets';
+    if ($counter.val() < 0) {
+      alert('Character Limit Exceeded');
+      return;
+    } else if ($textBox.val() === "") {
+      alert('Please submit a tweet!');
+      return;
+    } else {
+      $.ajax({
+        url: "/tweets",
+        method: "POST",
+        data: $(this).serialize()
+      })
+      .done((data) => {
+        resetForm();
+        $.ajax({
+          url: "/tweets",
+          method: "GET"
+        })
+        .done((data) => {
+          $('.all-tweets').prepend($(createTweetElement(data.reverse()[0])));
+        })
+        .fail((err) => {
+          console.log('Error did not work');
+        });
+      });
+    }
   });
+
+  const loadTweets = function() {
+    $.ajax({
+      url: "/tweets",
+      method: "GET"
+    })
+    .done((data) => {
+      renderTweets(data.reverse());
+    })
+    .fail((err) => {
+      console.log('Error:', error);
+    });
+  };
+
+  loadTweets();
+
 });
+
+
+
+
 
 // Define a function that creates a tweet element using a tweet object
 const createTweetElement = function(tweet) {
@@ -61,7 +97,7 @@ const createTweetElement = function(tweet) {
 const renderTweets = function(tweets) {
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
-    $('.all-tweets').append($tweet);
+    $('.all-tweets').prepend($tweet);
   }
 };
 
@@ -88,17 +124,16 @@ $(document).ready(function() {
   loadInitialTweets();
 });
 
-const loadTweets = function() {
-    $.ajax({
-      url: 'http://localhost:8080/tweets',
-      method: 'GET',
-      success: function(response) {
-        renderTweets(response);
-      },
-      error: function(xhr, status, error) {
-        // Handle any errors 
-        console.log('Error:', error);
-      }
+$.ajax('/tweets', { method: 'POST', data: data })
+    .then(function () {
+      loadTweets();
     });
-    return loadTweets();
-  };
+
+// const loadTweets = function() {
+//   $.ajax('/tweets', { method: 'GET' })
+//   .then(function (data) {
+//     renderTweets(data);
+//   });
+// };
+
+loadTweets();
