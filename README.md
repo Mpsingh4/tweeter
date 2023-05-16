@@ -18,6 +18,9 @@ The Tweeter project has the following dependencies:
 
 - Express
 - Node 5.10.x or above
+- Body-Parser
+- Chance
+- MD5
 
 Please make sure you have these dependencies installed before running the project.
 
