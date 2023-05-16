@@ -11,11 +11,10 @@
 
 // submit tweet
 $(document).ready(function() {
-
   $('.form-box').on('submit', function(event) {
     const $parentSection = $(event.target).closest('section');
     const $counter = $parentSection.find('.counter');
-    const $textBox = $parentSection.find('#tweet-text')
+    const $textBox = $parentSection.find('#tweet-text');
     event.preventDefault();
 
     if ($counter.val() < 0) {
@@ -25,19 +24,36 @@ $(document).ready(function() {
       alert('Please submit a tweet!');
       return;
     } else {
-      console.log('before ajax/post')
+      console.log('before ajax/post');
       $.ajax({
         url: "/tweets",
         method: "POST",
         data: $(this).serialize()
       })
-      .done((data) => {
-        console.log("in done");
-        loadTweets();
+      .done((response) => {
+        // console.log("in done");
+        // const data = response; // Capture the response data
+        // const tweetId = data._id;
+        // // Check if the tweet has already been rendered
+        // if (!$(`#${tweetId}`).length) {
+        //   const $tweet = createTweetElement(data);
+        //   $allTweets.prepend($tweet);
+        // }
+        loadTweets(response);
       });
     }
   });
+});
 
+
+
+    // Check if the tweet has already been rendered
+      // if (!renderedTweets.has(data._id)) {
+      //   const $tweet = createTweetElement(data);
+      //   $allTweets.prepend($tweet);
+      //   renderedTweets.add(data._id); // Add the tweet ID to the set
+      // }
+  
   const loadTweets = function() {
     $.ajax({
       url: "/tweets",
@@ -45,7 +61,7 @@ $(document).ready(function() {
     })
     .done((data) => {
       console.log(data)
-      renderTweets(data.reverse());
+      renderTweets(data);
     })
     .fail((err) => {
       console.log('Error:', error);
@@ -54,14 +70,11 @@ $(document).ready(function() {
 
   loadTweets();
 
-});
-
-
-
-
 
 // Define a function that creates a tweet element using a tweet object
 const createTweetElement = function(tweet) {
+  console.log(tweet); // Log the tweet object for debugging
+  const daysAgo = Math.floor(Math.random() * 365) + 1;
   const $tweet = $(`
     <article class="tweets-posted">
       <header class="tweet-header">
@@ -71,30 +84,34 @@ const createTweetElement = function(tweet) {
       </header>
       <p id="tweet-text">${tweet.content.text}</p>
       <footer class="tweet-footer">
-        <p id="date-tweeted">${tweet.created_at} days ago</p>
+        <p id="date-tweeted">${daysAgo} days ago</p>
         <div class="tweet-footer-icons">
           <div><i class="fa-solid fa-flag"></i></div>
           <div><i class="fa fa-retweet"></i></div>
           <div><i class="fa-solid fa-heart"></i></div>
-          </div>
-          </footer>
-          </article>
-          <br>
-          `);
-          
-          // Return the tweet element
-          return $tweet;
-        };
+        </div>
+      </footer>
+    </article>
+    <br>
+  `);
+
+  // Return the tweet element
+  return $tweet;
+};
+
+
         
 
 // Define a function that renders tweets by creating a tweet element for each tweet and appending it to the tweet history
 const renderTweets = function(tweets) {
+  const $allTweets = $('.all-tweets');
   for (const tweet of tweets) {
     const $tweet = createTweetElement(tweet);
-    $('.all-tweets').prepend($tweet);
+    $allTweets.prepend($tweet);
   }
 };
 
+// renderTweets(data.reverse());
 
 // red arrow bobbing function
 $(document).ready(function() {
