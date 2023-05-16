@@ -180,3 +180,19 @@ textarea#text-box {
   padding: 0;
   margin: 10px;
 }
+
+#validation-error {
+  justify-content: center;
+  display: none;
+  align-items: center;
+  color: red;
+  font-size: 20px;
+  background-color: transparent;
+  /* font-weight: bold; */
+  border-radius: 5px;
+  border-style: solid;
+  padding: 10px;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  border-color: red;
+}

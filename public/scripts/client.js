@@ -16,44 +16,58 @@ const escape2 = function (str) {// escape cause strikethrough lines in code (dep
   return div.innerHTML;
 };
 
-// submit tweet
+const showValidationError = function(err, msg) {
+  err.show().text(msg).slideDown("fast").css('display', 'flex');
+  console.log('showValidationError')
+}
+
+const hideValidationError = function(err) {
+  err.slideUp("fast", function() {
+    $(this).text('');
+  });
+}
+
 $(document).ready(function() {
   $('.form-box').on('submit', function(event) {
+    console.log("form box") // delete later
     const $parentSection = $(event.target).closest('section');
     const $counter = $parentSection.find('.counter');
-    const $textBox = $parentSection.find('#tweet-text');
+    const $textBox = $parentSection.find('#text-box'); //changed from #tweet-text
     event.preventDefault();
+    const $validationError = $('#validation-error');
 
-    if ($counter.val() < 0) {
-      alert('Character Limit Exceeded');
+
+    if ($textBox.val().length > 140) {
+      const msg = 'Character Limit Exceeded';
+      showValidationError($validationError, msg);
+      $parentSection.slideDown("fast");
       return;
-    } else if ($textBox.val() === "") {
-      alert('Please submit a tweet!');
+    } else if (String($textBox.val()).trim() === "") {
+      const msg = 'Please submit a tweet!';
+      showValidationError($validationError, msg);
+      $parentSection.slideDown("fast");
       return;
     } else {
+      hideValidationError($validationError);
       console.log('before ajax/post');
+
+      // if ( )
+
       $.ajax({
         url: "/tweets",
         method: "POST",
         data: $(this).serialize()
       })
       .done((response) => {
-        // console.log("in done");
-        // const data = response; // Capture the response data
-        // const tweetId = data._id;
-        // // Check if the tweet has already been rendered
-        // if (!$(`#${tweetId}`).length) {
-          // const $tweet = createTweetElement(data);
-          // $allTweets.prepend($tweet);
-        // }
         console.log(response[0], "before load tweets");
         $('.all-tweets').empty();
-         loadTweets(); //removed (response)
-        // addNewTweet(response[0])
+        loadTweets();
       });
     }
   });
 });
+
+
 
 
 
