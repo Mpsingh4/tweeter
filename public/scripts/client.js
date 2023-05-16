@@ -62,6 +62,7 @@ $(document).ready(function() {
         console.log(response[0], "before load tweets");
         $('.all-tweets').empty();
         loadTweets();
+        
       });
     }
   });
