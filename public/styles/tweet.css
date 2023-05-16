@@ -1,7 +1,5 @@
 /* Compose Tweet Section */
 section.compose-tweet {
-  /* border: 1px solid #ccc; */
-  /* padding: 10px; */
   background-color: #fff;
   font-family: 'Bungee', sans-serif;
   border: none;
@@ -21,7 +19,7 @@ section.compose-tweet h4 {
   padding: 10px;
   background-color: #fff;
   font-family: 'Bungee', sans-serif;
-  width: 500px; /* Adjust the width as needed */
+  width: 500px; 
   margin: 0 auto;
 }
 

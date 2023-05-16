@@ -1,14 +1,4 @@
 
-// const express = require('express');
-// const app = express();
-
-// const initialTweets = require('./initial-tweets.json'); // Assuming this is the correct path
-
-// app.get('/api/initial-tweets', (req, res) => {
-//   res.json(initialTweets);
-// });
-
-
 // XSS security
 const escape2 = function (str) {// escape cause strikethrough lines in code (depracation warning and was not sure if it affected other lines of code)
   let div = document.createElement("div");
@@ -62,23 +52,13 @@ $(document).ready(function() {
         console.log(response[0], "before load tweets");
         $('.all-tweets').empty();
         loadTweets();
-        
+        $textBox.val(""); //clear tweets in textbox after submitting
       });
     }
   });
 });
 
 
-
-
-
-    // Check if the tweet has already been rendered
-      // if (!renderedTweets.has(data._id)) {
-      //   const $tweet = createTweetElement(data);
-      //   $allTweets.prepend($tweet);
-      //   renderedTweets.add(data._id); // Add the tweet ID to the set
-      // }
-  
   const loadTweets = function() {
     $.ajax({
       url: "/tweets",
@@ -140,13 +120,9 @@ const renderTweets = function(tweets) {
   }
 };
 
-// renderTweets(data.reverse());
 
 // red arrow bobbing function
 $(document).ready(function() {
   const $arrowDown = $('.arrow-down');
   $arrowDown.addClass('bobbing');
 });
-
-
-//////

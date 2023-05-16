@@ -1,8 +1,4 @@
-/*
- * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
- * https://css-tricks.com/international-box-sizing-awareness-day/
- * Do not modify these two selectors, please
- */
+
 html {
   box-sizing: border-box;
 }
@@ -60,17 +56,6 @@ section.compose-tweet {
   flex-direction: column;
 }
 
-nav {
-  /* Styles for the navigation */
-}
-
-header {
-  /* Styles for the header */
-}
-
-main {
-  /* Styles for the main content */
-}
 
 /* Media query for screens wider than 650 pixels */
 @media (min-width: 768px) {
