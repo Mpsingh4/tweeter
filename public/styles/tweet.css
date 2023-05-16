@@ -63,7 +63,7 @@ textarea#text-box {
 }
 
 .tweet-submit input[type="submit"] {
-  background-color: #0084b4;
+  background-color: purple;
   color: #fff;
   border: none;
   padding: 10px 10px;

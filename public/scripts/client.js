@@ -9,6 +9,13 @@
 // });
 
 
+// XSS security
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 // submit tweet
 $(document).ready(function() {
   $('.form-box').on('submit', function(event) {
@@ -36,8 +43,8 @@ $(document).ready(function() {
         // const tweetId = data._id;
         // // Check if the tweet has already been rendered
         // if (!$(`#${tweetId}`).length) {
-        //   const $tweet = createTweetElement(data);
-        //   $allTweets.prepend($tweet);
+          // const $tweet = createTweetElement(data);
+          // $allTweets.prepend($tweet);
         // }
         loadTweets(response);
       });
@@ -78,11 +85,11 @@ const createTweetElement = function(tweet) {
   const $tweet = $(`
     <article class="tweets-posted">
       <header class="tweet-header">
-        <img src=${tweet.user.avatars}>
-          <h4 class="username">${tweet.user.name}</h4>
-          <div><p class="handle">${tweet.user.handle}</p></div>
+        <img src=${escape(tweet.user.avatars)}>
+          <h4 class="username">${escape(tweet.user.name)}</h4>
+          <div><p class="handle">${escape(tweet.user.handle)}</p></div>
       </header>
-      <p id="tweet-text">${tweet.content.text}</p>
+      <p id="tweet-text">${escape(tweet.content.text)}</p>
       <footer class="tweet-footer">
         <p id="date-tweeted">${daysAgo} days ago</p>
         <div class="tweet-footer-icons">
