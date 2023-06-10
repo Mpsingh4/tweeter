@@ -42,6 +42,7 @@ main {
 
 section.compose-tweet {
   border: round;
+  padding-top: 20px;
 }
 
 .username {
