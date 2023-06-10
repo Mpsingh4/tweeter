@@ -21,11 +21,13 @@ nav {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 15px;
   margin-bottom: 0px;
+  flex-direction: column;
 }
 
 .arrow-down {
   display: flex;
-  align-items: flex-end;  
+  align-items: center;
+  padding-left: 105px;  
 }   /* this allows it to show however the code below completely deletes it */
 
 

@@ -12,4 +12,8 @@ $(document).ready(function() {
       counter.removeClass('tweetMaxChars');
     }
   });
+  
+  $('form').submit(function() {
+    $('.counter').text(140); // Reset the counter to its initial value
+  });
 });
