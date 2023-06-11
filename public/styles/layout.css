@@ -40,6 +40,7 @@ main {
   height: 220px;
   overflow-y: auto;
   margin: auto;
+  zoom: 140%;
 }
 
 

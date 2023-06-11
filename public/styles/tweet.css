@@ -88,6 +88,7 @@ textarea#text-box {
   overflow-y: auto;
   justify-content: center; /* Horizontally center */
   align-items: center; /* Vertically center */
+  zoom: 120%;
 }
 
 
