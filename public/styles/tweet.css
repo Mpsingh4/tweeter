@@ -108,7 +108,7 @@ textarea#text-box {
   justify-content: space-between;
   padding: 4px;
   zoom: 40%;
-  background-color: white;
+  background-color: #8a2be2;
   background: solid;
   height: 100px;
 }
@@ -121,16 +121,39 @@ textarea#text-box {
 .tweet-header .profile {
   display: flex;
   align-items: center;
+  color: white;
 }
 
 .tweet-header .profile-name {
   margin-left: 10px;
   font-weight: bold;
+  font-size: 13;
+  color: white;
+  align-items: left;
 }
 
 .tweet-header .profile-id {
   font-weight: bold;
   margin-left: auto; /* Push the handle to the right side */
+  font-size: 13;
+  color: white;
+}
+
+.tweet-header .profile h4.username {
+  font-weight: bold;
+  font-size: 23px;
+  color: white;
+  margin-right: 400px;
+  align-items: left;
+}
+
+.tweet-header .handle {
+  color: aqua;
+  margin-right: 10px;
+}
+
+.tweet-header .img {
+  color: aqua;
 }
 
 

@@ -13,7 +13,7 @@ $(document).ready(function() {
     }
   });
   
-  $('form').submit(function() {
-    $('.counter').text(140); // Reset the counter to its initial value
-  });
+  // $('form').submit(function() {
+  //   $('.counter').text(140); // Reset the counter to its initial value
+  // });
 });

@@ -26,7 +26,6 @@ $(document).ready(function() {
     event.preventDefault();
     const $validationError = $('#validation-error');
 
-
     if ($textBox.val().length > 140) {
       const msg = 'Character Limit Exceeded';
       showValidationError($validationError, msg);
@@ -41,8 +40,6 @@ $(document).ready(function() {
       hideValidationError($validationError);
       console.log('before ajax/post');
 
-      // if ( )
-
       $.ajax({
         url: "/tweets",
         method: "POST",
@@ -53,10 +50,14 @@ $(document).ready(function() {
         $('.all-tweets').empty();
         loadTweets();
         $textBox.val(""); //clear tweets in textbox after submitting
+        
+        // Reset the counter to 140
+        $counter.text(140);
       });
     }
   });
 });
+
 
 
   const loadTweets = function() {
